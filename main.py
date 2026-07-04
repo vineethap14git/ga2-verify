@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException ,JSONResponse
 from pydantic import BaseModel
 from jose import jwt, JWTError
 
@@ -41,7 +41,7 @@ def verify_token(req: TokenRequest):
         }
 
     except JWTError:
-        raise HTTPException(
-            status_code=401,
-            detail={"valid": False}
-        )
+    return JSONResponse(
+        status_code=401,
+        content={"valid": False}
+    )
