@@ -41,7 +41,7 @@ def verify_token(req: TokenRequest):
         }
 
     except JWTError:
-    return JSONResponse(
-        status_code=401,
-        content={"valid": False}
-    )
+    	return JSONResponse(
+        	status_code=401,
+        	content={"valid": False}
+    	)
